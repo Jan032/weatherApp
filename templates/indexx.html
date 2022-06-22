@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/weather-icons.min.css">
+    <style>
+        {background-image: url("/static/Images/weather.img.jpg"); height: 100vh;}
+    </style>
+</head>
+<body>
+<div class="container-fluid text-center" style="background-image: url(/static/Images/weather.img.jpg); height: 100vh; background-size: cover; background-position: center;">
+
+    <h1 class="text-center">Weather::app</h1> <br>
+        <form method="post" action="/">
+            <input type="text" name="city" placeholder="Search cities" class="form border border-dark rounded">
+            <button type="submit" class="btn btn-outline-dark hover">Search</button>
+        </form>
+    <br><br><br>
+
+
+        <div class="container col-lg-2 col-md-4 col-sm-4 container justify-content-center border border-dark border-3 bg-light rounded-3">
+            <h3>{{ data.name }} </h3>
+            <h4>{{ data.main.temp}} °C <img src="http://openweathermap.org/img/w/{{ data.weather[0].icon }}.png"></img></h4>
+            <p>{{ data.weather[0].description }}</p>
+            <b>Feels like {{ data.main.feels_like }}°C</b>
+            <p>Wind speed: {{ data.wind.speed }}m/s</p>
+            <p>Pressure: {{ data.main.pressure }}</p>
+            <p>Humidity: {{ data.main.humidity }}</p>
+        </div>
+
+</div>
+</body>
+</html>
